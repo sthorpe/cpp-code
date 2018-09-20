@@ -9,6 +9,8 @@
                 "-o",
                 "prime",
                 "prime.cpp",
+                "calculator",
+                "Calculator.cpp",
                 "-g",
                 "-v"
             ],
