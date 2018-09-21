@@ -1,41 +1,30 @@
 /*
-    pre-Function scope of variables
+ Functions
 */
+
 #include <iostream>
 
 using namespace std;
-/*scope / range of varables */
-
-int globalVariable;
 
 int main()
 {
-    int localVariable;
-/*
-    cout << "value of globalVariable: " << globalVariable << endl;
-    cout << "value of localVariable: " << localVariable << endl;
-*/
-    int a = 10;
-/*
-    if (a == 10)
+    string tmp;
+
+    cout << "Enter the number: " << endl;
+    cin >> tmp;
+
+    bool isNumber = true;
+
+    for (int i = 0; i < tmp.length(); i++)
     {
-        int result = a * 10;
+        if (!(tmp[i] >= 48 && tmp[i] <= 57))
+            isNumber = false;
     }
 
+    if (isNumber)
+        cout << "Number entered properly " << endl;
+    else
+        cout << "Number wasn't entered properly " << endl;
 
 
-    cout << result << endl;*/
-
-    int nr, result = 0;
-    int i = 0;
-    for (; i < 3; i++) // 3,2,3 - will the result be 8??? NOOOOOOOOO, we have to assign 0 to the result!
-    {
-        cout << "Enter " << (i + 1) << " number" << endl;
-        cin >> nr;
-        result += nr; //result = result + nr;
-    }
-
-    cout << result << endl;
-    cout << "we added " << i << " numbers" << endl;
 }
-
