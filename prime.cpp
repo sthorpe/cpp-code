@@ -17,8 +17,12 @@ int main()
 
     for (int i = 0; i < tmp.length(); i++)
     {
+        cout << tmp[i];
         if (!(tmp[i] >= 48 && tmp[i] <= 57))
+        {
             isNumber = false;
+            break;
+        }
     }
 
     if (isNumber)
