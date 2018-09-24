@@ -1,34 +1,34 @@
-/*
- Functions
+/* 
+  Overloading functions
 */
 
 #include <iostream>
 
 using namespace std;
 
+int power(int, int);
+double power(double, int);
+
 int main()
 {
-    string tmp;
+    cout << power(2.5, 3) << endl;
+    return 0;
+}
 
-    cout << "Enter the number: " << endl;
-    cin >> tmp;
+int power(int b, int e)
+{
+    int tmp = b;
+    while(e-- > 1)
+        b *= tmp;
 
-    bool isNumber = true;
+    return b;
+}
 
-    for (int i = 0; i < tmp.length(); i++)
-    {
-        cout << tmp[i];
-        if (!(tmp[i] >= 48 && tmp[i] <= 57))
-        {
-            isNumber = false;
-            break;
-        }
-    }
+double power(double b, int e)
+{
+    double tmp = b;
+    while(e-- > 1)
+        b *= tmp;
 
-    if (isNumber)
-        cout << "Number entered properly " << endl;
-    else
-        cout << "Number wasn't entered properly " << endl;
-
-
+    return b;
 }
