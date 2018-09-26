@@ -1,5 +1,6 @@
 /* 
   Loops and functions
+  Buffer - temp array
 */
 
 #include <iostream>
@@ -14,6 +15,8 @@ double areaSquare(double);
 double areaRectangle(double, double);
 double areaTriangle(double, double);
 //const double PI = 3.14
+bool isValid(string);
+bool isValid();
 
 int main()
 {
@@ -24,14 +27,27 @@ int main()
         system("cls"); // Clear screen
         initMenu();
 
-        cin >> choice;
+        while(!(cin >> choice))
+        {
+            // cout << "state before: " << cin.rdstate() << endl;
+            cin.clear();
+            // cout << "state after: " << cin.rdstate() << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
+            system("cls");
+            initMenu();
+            cout << "You just entered the wrong option" << endl;
+
+        }
+        
         menuDecision(choice);
 
         do
         {
             cout << "Do you want to try again? (Y/N)" << endl; 
             cin >> cont;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         } while(cont != 'y' && cont != 'Y' && cont != 'n' && cont != 'N');
 
     } while(cont == 'y' || cont == 'Y');
@@ -53,24 +69,23 @@ void menuDecision(int choice)
     switch(choice)
     {
         double r, a, b, h;
-        case 1:
-            cout << "What is the radius? " << endl;
-            cin >> r;
+        case 1:            
+            do { cout << "What is the radius? " << endl; cin >> r; } while(!isValid());
             areaCircle(r);
             break;
         case 2:
             cout << "Enter the side of the square? " << endl;
-            cin >> a;
+            do { cin >> a; } while(!isValid("The side is wrong. Please type it again."));
             areaSquare(a);        
             break;
         case 3:
             cout << "Enter the width and height of a rectangle: " << endl;
-            cin >> a >> b;
+            do { cin >> a >> b; } while(!isValid("The width or the height is wrong. Please type it again."));
             areaRectangle(a, b);
             break;
         case 4:
             cout << "What is the base and height of a triangle? " << endl;
-            cin >> a >> h;
+            do { cin >> a >> h; } while(!isValid("The base or the height is wrong. Please type it again."));
             areaTriangle(a, h);        
             break;
         default:
@@ -109,4 +124,31 @@ double areaTriangle(double a, double h)
     cout << "The area of a triangle that base is " << a << " and height is " << h << " = " << result << endl;
 
     return result;
+}
+bool isValid(string error_msg)
+{
+    if(cin.rdstate()) //state is wrong when it is not equal to 0
+    {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        system("cls");
+        initMenu();
+        cout << error_msg << endl;
+        return false;
+    }
+
+    return true;
+}
+bool isValid()
+{
+    if(cin.rdstate()) 
+    {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        system("cls");
+        initMenu();
+        return false;
+    }
+
+    return true;    
 }
