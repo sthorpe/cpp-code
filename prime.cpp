@@ -1,50 +1,19 @@
 /*
-    enum - enumeration
+    Reference Variables
+    A nickname for a variable
 */
+
 #include <iostream>
 
 using namespace std;
 
-enum dayOfWeek { M = 1, TU, W, TH, F, SA, SN };
-string getDay(dayOfWeek);
-
 int main()
 {
-    dayOfWeek d = M;
-
-    cout << d << endl;
-
-    //cout << dayOfWeek(TU) << endl;
-
-    int i;
-    cout << "Enter the day of the week" << endl;
-    cout << "1. Monday " << endl;
-    cout << "2. Tuesday " << endl;
-    cout << "3. Wednesday " << endl;
-    cin >> i;
-    cout << getDay(dayOfWeek(i)) << endl;
-
+    string name = "Scott";
+    cout << "The value of our variable: " << name << " address " << &name << endl;
+    const string &nr_6 = name;
+    cout << "The value of our variable: " << nr_6 << " address " << &nr_6 << endl;
+    name = "Caitlin";
+    cout << "The value of our variable: " << nr_6 << " address " << &nr_6 << endl;
     return 0;
-}
-string getDay(dayOfWeek d)
-{
-    switch(d)
-    {
-        case M:
-            return "Monday";
-        case TU:
-            return "Tuesday";
-        case W:
-            return "Wednesday";
-        case TH:
-            return "Thursday";
-        case F:
-            return "Friday";
-        case SA:
-            return "Saturday";
-        case SN:
-            return "Sunday";
-        default:
-            return "You typed something wrong";
-    }
 }
