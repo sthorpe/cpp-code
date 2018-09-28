@@ -1,5 +1,5 @@
 /*
-    Pointers are ordinary variables that can store variables address
+    Name of Array - Pointer
 */
 
 #include <iostream>
@@ -8,45 +8,52 @@ using namespace std;
 
 int main()
 {
-    int var = 5;
-    int a = 20;
+    // double a[3];  Moves in the memory by 8 bytes
+    int a[3]; // each slot of the array increments by 4 bytes
+    a[0] = 0;
+    a[1] = 20;
+    a[2] = 40;
+    short int zm;
+    int * const p = &a[0];
 
-    cout << &var << endl;
-
-    // int *p; // * here is just to tell the compiler that p is a pointer.
-
-    int *p = &var;
-
-    cout << *p << endl; // Use * on a pointer to get the value
-
-    //*p = 20;
-    p = &a;
-    *p = 60;
-    
-    cout << "var: " << var << endl;
-    cout << "*p: " << *p << endl;
-    cout << "a: " << a << endl;
-
-    int * const p_const = &a; // this is a pointer that has to be initalized when defined, because it cannot change after defining the thing it is pointing to.
-
-    const int * p_2 = &a;
-
-    const int * const p_3 = &a;
+    cout << p << endl;
+    cout << a << endl;
 
     cout << endl << endl << endl;
 
-    int ordinary_var = 10;
+    cout << &a[0] << endl;
+    cout << &a[1] << endl;
+    cout << &a[2] << endl;
 
-    int *ordinary_p = &ordinary_var;
+    cout << endl << endl << endl;
 
-    cout << "ordinary_var: " << ordinary_var << endl; //integer value
-    cout << "&ordinary_var: " << &ordinary_var << endl; //address 
-    cout << "ordinary_p: " << ordinary_p << endl; //address
-    cout << "*ordinary_p: " << *ordinary_p << endl; //integer value from pointed place (ordinary_var)
-    cout << "&ordinary_p: " << &ordinary_p << endl; //address of pointer itself
+    cout << a << endl;
+    cout << a + 1 << endl;
+    cout << a + 2 << endl;
 
-    int ** p_pointing_to_address_of_pointer = &ordinary_p;
-    cout << "p_pointing_to_address_of_pointer: " << &p_pointing_to_address_of_pointer << endl; 
+    cout << endl << endl << endl;
+
+    cout << *a << endl;
+    cout << *(a + 1) << endl;
+    cout << *(a + 2) << endl;
+
+    cout << endl << endl << endl;
+
+    cout << a[0] << endl;
+    cout << a[1] << endl;
+    cout << a[2] << endl;
+
+    int *p2 = &a[0];
+
+    cout << endl << endl;
+
+    cout << *p2 << endl; // 0
+    cout << ++*p2 << endl; // 1
+    cout << *++p2 << endl; // 20
+    cout << *p2++ << endl; // 20
+    cout << *p2 << endl; // 40
+
+
 
     return 0;
 }
