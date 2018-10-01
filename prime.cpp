@@ -1,5 +1,5 @@
 /*
-    Name of Array - Pointer
+    Dynamic allocation of memory
 */
 
 #include <iostream>
@@ -7,53 +7,73 @@
 using namespace std;
 
 int main()
-{
-    // double a[3];  Moves in the memory by 8 bytes
-    int a[3]; // each slot of the array increments by 4 bytes
-    a[0] = 0;
-    a[1] = 20;
-    a[2] = 40;
-    short int zm;
-    int * const p = &a[0];
+{    
+    // int var = 41240;
+    /*
+    int amount;
+
+    cout << "How many numbers would you like to store in an array? " << endl;
+    cin >> amount;
+
+    int *p = new (nothrow) int[amount];
 
     cout << p << endl;
-    cout << a << endl;
 
-    cout << endl << endl << endl;
+    if (p != NULL)
+    {
+        for (int i = 0;i < amount; i++)
+        {
+            cout << "Enter the " << (i+1) << " number: " << endl;
+            cin >> p[i];
+        }
 
-    cout << &a[0] << endl;
-    cout << &a[1] << endl;
-    cout << &a[2] << endl;
+        for (int i = 0;i < amount; i++)
+        {
+            cout << "p [ " << i << " ] = " << p[i] << endl;
+        }
+    }
+    else
+        cout << "Not enough memory" << endl;
 
-    cout << endl << endl << endl;
+    */
 
-    cout << a << endl;
-    cout << a + 1 << endl;
-    cout << a + 2 << endl;
+    // {} <-- keeps local values
+    /*
+    {
+        int *p = new int;
 
-    cout << endl << endl << endl;
+        *p = 50;
 
-    cout << *a << endl;
-    cout << *(a + 1) << endl;
-    cout << *(a + 2) << endl;
+        cout << *p << endl;
 
-    cout << endl << endl << endl;
+        delete p;
+        p = NULL;
+        p = &var;
 
-    cout << a[0] << endl;
-    cout << a[1] << endl;
-    cout << a[2] << endl;
+        if(p != NULL)
+        {
+            *p = 60;
 
-    int *p2 = &a[0];
+            cout << *p << endl;
+        }
+    }
 
-    cout << endl << endl;
+    */
+    {
+        int *p = new int;
 
-    cout << *p2 << endl; // 0
-    cout << ++*p2 << endl; // 1
-    cout << *++p2 << endl; // 20
-    cout << *p2++ << endl; // 20
-    cout << *p2 << endl; // 40
+        cout << p << endl;
 
+        delete p;
 
+        p = new int;
+        cout << p << endl;
 
+        delete p;
+    }
+
+    // cout << "var: " << var << endl;
+
+    // delete []p;
     return 0;
 }
