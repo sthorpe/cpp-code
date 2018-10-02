@@ -1,5 +1,5 @@
 /*
-    Dynamic allocation of memory
+    Strings and a pointer on a char type
 */
 
 #include <iostream>
@@ -8,72 +8,75 @@ using namespace std;
 
 int main()
 {    
-    // int var = 41240;
+    string text = "trala"; // t r a l a \0
+
     /*
-    int amount;
-
-    cout << "How many numbers would you like to store in an array? " << endl;
-    cin >> amount;
-
-    int *p = new (nothrow) int[amount];
-
-    cout << p << endl;
-
-    if (p != NULL)
+    for (int i = 0; i < text.length(); i++)
     {
-        for (int i = 0;i < amount; i++)
-        {
-            cout << "Enter the " << (i+1) << " number: " << endl;
-            cin >> p[i];
-        }
-
-        for (int i = 0;i < amount; i++)
-        {
-            cout << "p [ " << i << " ] = " << p[i] << endl;
-        }
+        cout << text[i] << endl;
     }
-    else
-        cout << "Not enough memory" << endl;
+    */
+   /*
+    char ch = text[0];
 
+    cout << ch << endl;
+
+    char characters[5] = "1234";
+
+    cout << characters << endl;
+
+    char characters1[] = "123asdfasdfasdf"; // Compilers in c++ are smart enough to dynamicly allocate
+
+    cout << characters1[0] << endl;
+    cout << *(characters1) << endl;
+
+    cout << characters1[1] << endl;
+    cout << *(characters1+1) << endl;
+
+    char *p = characters1;
+
+    cout << p[0] << endl;
+    cout << *(p) << endl;
+
+    cout << p[1] << endl;
+    cout << *(p+1) << endl;
     */
 
-    // {} <-- keeps local values
-    /*
-    {
-        int *p = new int;
+    // char text2[] = text; // Can not assign one type to another. char != string
+    const char * text2 = text.c_str(); // You can change a string to char if c_str() method
 
-        *p = 50;
+    cout << text2 << endl;
 
-        cout << *p << endl;
+    char array[] = "here is some text";
 
-        delete p;
-        p = NULL;
-        p = &var;
+    string test = array;
 
-        if(p != NULL)
-        {
-            *p = 60;
+    cout << test << endl;
 
-            cout << *p << endl;
-        }
-    }
+    const char * a = "this is a test 123434232"; // Cannot change the char
 
-    */
-    {
-        int *p = new int;
+    cout << a << endl;
 
-        cout << p << endl;
+    char b[] = "This is another test";
 
-        delete p;
+    b[0] = 'g';
 
-        p = new int;
-        cout << p << endl;
+    cout << b << endl;
 
-        delete p;
-    }
+    char * const dynamic_array = new char[50];
+    dynamic_array[0] = 'k';
+    dynamic_array[0] = '\0';
+    //dynamic_array = "lalalal";
 
-    // cout << "var: " << var << endl;
+    cout << dynamic_array << endl;
 
-    // delete []p;
+    delete [] dynamic_array;
+
+    string array_of_string[5] = {"this is a string that will be in all of the elements", "this is a string that will be in all of the elements"};
+
+    cout << array_of_string[0] << endl;
+    cout << array_of_string[1] << endl;
+    cout << array_of_string[2] << endl;
+
     return 0;
 }
