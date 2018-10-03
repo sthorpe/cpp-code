@@ -1,82 +1,63 @@
 /*
-    Strings and a pointer on a char type
+    Functions and pointers
 */
 
 #include <iostream>
 
 using namespace std;
 
+// void multiplyBy(int &, int);
+int * multiplyBy(int *, int);
+void multiplyArrayBy(int *, int, int);
+
 int main()
-{    
-    string text = "trala"; // t r a l a \0
-
+{
     /*
-    for (int i = 0; i < text.length(); i++)
-    {
-        cout << text[i] << endl;
-    }
-    */
-   /*
-    char ch = text[0];
+    int a = 10;
 
-    cout << ch << endl;
+    int *b = multiplyBy(&a, 5);
 
-    char characters[5] = "1234";
-
-    cout << characters << endl;
-
-    char characters1[] = "123asdfasdfasdf"; // Compilers in c++ are smart enough to dynamicly allocate
-
-    cout << characters1[0] << endl;
-    cout << *(characters1) << endl;
-
-    cout << characters1[1] << endl;
-    cout << *(characters1+1) << endl;
-
-    char *p = characters1;
-
-    cout << p[0] << endl;
-    cout << *(p) << endl;
-
-    cout << p[1] << endl;
-    cout << *(p+1) << endl;
-    */
-
-    // char text2[] = text; // Can not assign one type to another. char != string
-    const char * text2 = text.c_str(); // You can change a string to char if c_str() method
-
-    cout << text2 << endl;
-
-    char array[] = "here is some text";
-
-    string test = array;
-
-    cout << test << endl;
-
-    const char * a = "this is a test 123434232"; // Cannot change the char
-
+    *b = 999;
     cout << a << endl;
-
-    char b[] = "This is another test";
-
-    b[0] = 'g';
-
     cout << b << endl;
+    */
 
-    char * const dynamic_array = new char[50];
-    dynamic_array[0] = 'k';
-    dynamic_array[0] = '\0';
-    //dynamic_array = "lalalal";
+    int array[10];
+    //cout << sizeof(array) << endl; // 40 <-- because 10 * int = 4 
+    //cout << sizeof(array)/sizeof(array[0]) << endl; // This way we can see the actual size
 
-    cout << dynamic_array << endl;
-
-    delete [] dynamic_array;
-
-    string array_of_string[5] = {"this is a string that will be in all of the elements", "this is a string that will be in all of the elements"};
-
-    cout << array_of_string[0] << endl;
-    cout << array_of_string[1] << endl;
-    cout << array_of_string[2] << endl;
-
+    for (int i = 0; i < 10; i++)
+    {
+        array[i] = i;
+        //cout << "array [" << i << "] = " << array[i] << endl;
+    }
+    multiplyArrayBy(array, 5, sizeof(array)/sizeof(array[0])); // &array[0] == array
+    for (int i = 0; i < sizeof(array)/sizeof(array[0]); i++)
+    {
+        cout << "array [" << i << "] = " << array[i] << endl;
+    }
     return 0;
+}
+
+int * multiplyBy(int * var, int amount)
+{
+    *var = *var * amount;
+
+    return var;
+}
+
+/*
+void multiplyArrayBy(int *array, int amount, int sizeOfArray)
+{
+    for (int i = 0; i < sizeOfArray; i++)
+    {
+        array[i] = array[i] * amount;
+    }
+}
+*/
+
+void multiplyArrayBy(int *array, int amount, int sizeOfArray)
+{
+    while(sizeOfArray--)
+        array[sizeOfArray] *= amount;
 }
