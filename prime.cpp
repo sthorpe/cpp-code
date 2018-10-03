@@ -1,63 +1,48 @@
 /*
-    Functions and pointers
+    Pseudo-Random number generator
 */
 
 #include <iostream>
 
 using namespace std;
 
-// void multiplyBy(int &, int);
-int * multiplyBy(int *, int);
-void multiplyArrayBy(int *, int, int);
+void lottery(int, int);
 
 int main()
 {
-    /*
-    int a = 10;
+    // srand(time(NULL));
 
-    int *b = multiplyBy(&a, 5);
+    // int nr = rand() % 3;
 
-    *b = 999;
-    cout << a << endl;
-    cout << b << endl;
-    */
+    // cout << nr << endl;
 
-    int array[10];
-    //cout << sizeof(array) << endl; // 40 <-- because 10 * int = 4 
-    //cout << sizeof(array)/sizeof(array[0]) << endl; // This way we can see the actual size
-
-    for (int i = 0; i < 10; i++)
-    {
-        array[i] = i;
-        //cout << "array [" << i << "] = " << array[i] << endl;
-    }
-    multiplyArrayBy(array, 5, sizeof(array)/sizeof(array[0])); // &array[0] == array
-    for (int i = 0; i < sizeof(array)/sizeof(array[0]); i++)
-    {
-        cout << "array [" << i << "] = " << array[i] << endl;
-    }
+    lottery(49, 6);
     return 0;
 }
 
-int * multiplyBy(int * var, int amount)
+void lottery(int total_balls, int balls_to_draw)
 {
-    *var = *var * amount;
+    if (total_balls < balls_to_draw)
+        return;
+    srand(time(NULL)); // Seed
 
-    return var;
-}
+    int *balls = new int[balls_to_draw];
 
-/*
-void multiplyArrayBy(int *array, int amount, int sizeOfArray)
-{
-    for (int i = 0; i < sizeOfArray; i++)
+    for (int i = 0; i < balls_to_draw; i++)
     {
-        array[i] = array[i] * amount;
-    }
-}
-*/
+        balls[i] = rand() % total_balls + 1; // [1, 49] modulus gives us the proper range
 
-void multiplyArrayBy(int *array, int amount, int sizeOfArray)
-{
-    while(sizeOfArray--)
-        array[sizeOfArray] *= amount;
+        for (int j = 0; j < i + 1; j++)
+        {
+            if (balls[i] == balls[j] && i != j) // Possible problem is balls[0] == balls[0] which would go forever
+            {
+                i--;
+                break;
+            }
+            else if (j == i)
+                cout << balls[i] << endl;
+        }
+    }
+
+    delete[] balls;    
 }
