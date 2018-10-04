@@ -6,10 +6,11 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 
-#include <iostream>
 #include "ourfirstlibrary.h"
 
 using namespace std;
+
+#define PI 3.14
 
 int main() {
     

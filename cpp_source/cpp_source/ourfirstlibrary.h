@@ -8,8 +8,9 @@
 
 #ifndef ourfirstlibrary_h
 #define ourfirstlibrary_h
+#include <iostream>
 
-int a = 50;
+extern int a;
 void showHelp();
 
 #endif /* ourfirstlibrary_h */
