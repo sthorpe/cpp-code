@@ -1,33 +1,53 @@
 /*
-    TYPE CASTING
+    Executing your program from command prompt
 */
 
 #include <iostream>
 
 using namespace std;
+void showHelp();
 
-int main()
+int main(int argc, char *argv[])
 {
-    double var = 5.5;
+    // arguments counter
+    // cout << argc << endl;
 
-    int a = 5;
-    int b = 7;
+    // arguments values
+    // cout << argv[0] << endl;
 
-    cout << (int) var << endl; // explicit way
+    for (int i = 0; i < argc; i++)
+    {
+        if (strcmp(argv[i], "-h") == 0 && i == 1) // && i == 1 will be the correct argument position
+            showHelp();
+    }
+        
 
-    cout << (double)a / b << endl;
+    /*
+    char a[] = {'a', 'b', 'c', 'd', '\0'};
+    char *b = "this is a test";
 
-    int x = 10; // implicit way of casting
-    short y = x; // You can assign the value but it ends up being wrong
+    char *c[] = {"dog", "cat", "moose"};
 
-    cout << y << endl;
+    cout << c[0] << endl;
 
-    cout << int(var) << endl; // c version of casting
-    cout << static_cast<int>(var) << endl; // c++ way of casting
+    char x[] = "a";
+    char y[] = "a";
 
-    char ch = 'k';
+    cout << (x == y) << endl;
+    cout << (&x[0] == &y[0]) << endl;
 
-    cout << (int)ch << endl;
+    string a1 = "dog";
+    string a2 = "dog";
+
+    cout << (a1 == a2) << endl;
+
+    cout << (strcmp(x,y)) << endl; // 0 - variables are the same. 1 - The first string is greater. -1 - The first string is lower.
+    */
 
     return 0;
+}
+void showHelp()
+{
+    // INSTRUCTIONS
+    cout << "This is an instruction" << endl;
 }
