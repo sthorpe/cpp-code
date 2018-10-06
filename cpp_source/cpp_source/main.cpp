@@ -6,57 +6,34 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 /*
- Data Structres
+ Classes
 */
 
 #include <iostream>
+#include "people.h"
 
 using namespace std;
 
-struct personalData
+void test()
 {
-    string name;
-    string surname;
-    string telephoneNumber;
-    short age;
-}a,b;
-
-void test(personalData *);
+    // PersonalData person[5];
+    PersonalData * pointer = new PersonalData[5];
+    
+    delete [] pointer;
+}
 
 int main() {
+    PersonalData person(44);
+    PersonalData person1(20);
     
-    personalData person[5];
-    a.age = 10;
-    person[0].name = "Scott";
-    person[1].name = "Ralph";
-    person[0].surname = "sthorpe";
-    person[0].telephoneNumber = "3855555555";
-    person[0].age = 38;
+    //person.setAge(-50);
+    //person1.setAge(20);
     
-    cout << person[0].name << endl;
-    cout << person[0].surname << endl;
-    cout << person[0].telephoneNumber << endl;
-    cout << person[0].age << endl;
+    cout << person.getAge() << endl;
+    cout << person1.getAge() << endl;
     
-    cout << (*person).name << endl;
-    cout << (*(person+1)).name << endl;
-    cout << (*&person[0]).name << endl;
-    cout << person -> name << endl;
-    cout << (person+1) -> name << endl;
-    
-    cout << a.age << endl;
-    
-    personalData *p = &person[0];
-    
-    cout << p -> age << endl;
-    
-    test(p);
-    
-    cout << p->name << endl;
+    //test();
     
     return 0;
 }
-void test(personalData *person)
-{
-    person -> name = "Caitlin";
-}
+
