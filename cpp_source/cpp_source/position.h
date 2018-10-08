@@ -17,6 +17,7 @@ public:
     ~Position();
     void getPosition() const;
     void setPosition(int, int);
+    friend void setX(Position &, int);
 };
 
 
