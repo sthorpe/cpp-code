@@ -6,33 +6,26 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 /*
- Classes
+ Static variables and functions
+ *Tips
+    - static variables keep track of the value
+    - static functions allow you to access the function without an instance of the class!
+ 
 */
 
 #include <iostream>
-#include "people.h"
+#include "user.h"
 
 using namespace std;
 
-void test()
-{
-    // PersonalData person[5];
-    PersonalData * pointer = new PersonalData[5];
-    
-    delete [] pointer;
-}
-
 int main() {
-    PersonalData person(44);
-    PersonalData person1(20);
+    //User a[50];
+    //User b;
     
-    //person.setAge(-50);
-    //person1.setAge(20);
-    
-    cout << person.getAge() << endl;
-    cout << person1.getAge() << endl;
-    
-    //test();
+    //cout << a[9].getID() << endl;
+    // User::counter = 60;
+    cout << User::getCounter() << endl;
+    //cout << b.getID() << endl;
     
     return 0;
 }
