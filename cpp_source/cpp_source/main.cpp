@@ -14,19 +14,21 @@
 */
 
 #include <iostream>
-#include "user.h"
+#include "position.h"
 
 using namespace std;
 
 int main() {
-    //User a[50];
-    //User b;
+    Position dog(10, 50);
     
-    //cout << a[9].getID() << endl;
-    // User::counter = 60;
-    cout << User::getCounter() << endl;
-    //cout << b.getID() << endl;
+    dog.getPosition();
+    dog.setPosition(45, 33);
+    dog.getPosition();
     
+    const Position house(100, 200);
+    
+    house.getPosition();
+    //house.setPosition(444, 444);
+    house.getPosition();
     return 0;
 }
-
