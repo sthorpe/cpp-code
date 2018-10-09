@@ -6,33 +6,23 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 /*
- Friend functions
+ Friend Classes
 */
 
 #include <iostream>
-#include "position.h"
+#include "test.h"
 
 using namespace std;
 
-void setX(Position &, int);
-
 int main() {
-    Position dog(10, 50);
     
-    dog.getPosition();
-    setX(dog, 500);
-    dog.getPosition();
+    B objB;
+    A objA;
     
-    const Position house(100, 200);
+    objA.setSecretValue(objB, 600);
     
-    house.getPosition();
-    //house.setPosition(444, 444);
-    //house.getPosition();
+    cout << objB.getSecretValue() << endl;
+
     return 0;
 }
 
-void setX(Position & obj, int value)
-{
-    // Position &obj = dog
-    obj.x = value;
-}
