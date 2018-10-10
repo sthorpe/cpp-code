@@ -6,38 +6,32 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 /*
- Copy constructor
+ Convert constructor and overloading operators
 */
 
 #include <iostream>
-#include "test.h"
+#include "integer.h"
 
 using namespace std;
 
 int main() {
+    //int a = 10;
+    //double b = 20;
     
-    int a = 10;
-    int b = a;
+    //cout << (double) a / b << endl;
     
-    a = 60;
+    Integer a(50);// casting double
+    int b = (int)a;
+    a = 100;
+    cout << a.getNr() << endl;
+    cout << b << endl;
     
-    cout << "a : " << a << endl;
-    cout << "b : " << b << endl;
+    cout << a + (Integer)b << endl;
     
-    Test obj1(50, 100, 60);
-    Test obj2 = obj1;
+    a += b; // a = a + b;
     
-    obj2.x = 200;
-    *(obj1.p) = 700; // Trying to change a pointers address
+    cout << a.getNr() << endl;
     
-    cout << "obj1.x " << obj1.x << endl;
-    cout << "obj1.p " << *(obj1.p) << endl;
-    cout << "obj1.y " << obj1.y << endl << endl;
-    
-    cout << "obj2.x " << obj2.x << endl;
-    cout << "obj2.p " << *(obj2.p) << endl;
-    cout << "obj2.y " << obj2.y << endl;
-
     return 0;
 }
 
