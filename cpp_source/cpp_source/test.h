@@ -2,27 +2,22 @@
 //  test.h
 //  cpp_source
 //
-//  Created by Scott Thorpe on 10/9/18.
+//  Created by Scott Thorpe on 10/10/18.
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 
-#ifndef test_h
-#define test_h
+#ifndef test_hpp
+#define test_hpp
 
-class B;
-
-class A
+class Test
 {
 public:
-    void setSecretValue(B &, int);
-};
-
-class B
-{
-    friend class A;
-    int secretValue;
-public:
-    int getSecretValue() { return secretValue; }
+    int x;
+    int y;
+    int *p;
+    Test(const Test &); // Copy constructor
+    Test(int, int, int);
+    ~Test();
 };
 
 #endif /* test_h */

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		652130A1216D31660025E4A9 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6521309F216D31660025E4A9 /* test.cpp */; };
+		652130A4216E49AF0025E4A9 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 652130A2216E49AF0025E4A9 /* test.cpp */; };
 		65699C61216683E4006EF864 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65699C60216683E4006EF864 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6521309F216D31660025E4A9 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
-		652130A0216D31660025E4A9 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		652130A2216E49AF0025E4A9 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		652130A3216E49AF0025E4A9 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		65699C5D216683E4006EF864 /* cpp_source */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cpp_source; sourceTree = BUILT_PRODUCTS_DIR; };
 		65699C60216683E4006EF864 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				65699C60216683E4006EF864 /* main.cpp */,
-				6521309F216D31660025E4A9 /* test.cpp */,
-				652130A0216D31660025E4A9 /* test.h */,
+				652130A2216E49AF0025E4A9 /* test.cpp */,
+				652130A3216E49AF0025E4A9 /* test.h */,
 			);
 			path = cpp_source;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65699C61216683E4006EF864 /* main.cpp in Sources */,
-				652130A1216D31660025E4A9 /* test.cpp in Sources */,
+				652130A4216E49AF0025E4A9 /* test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,13 +2,25 @@
 //  test.cpp
 //  cpp_source
 //
-//  Created by Scott Thorpe on 10/9/18.
+//  Created by Scott Thorpe on 10/10/18.
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 
 #include "test.h"
 
-void A::setSecretValue(B & obj, int value)
+Test::Test(int x, int y, int value)
 {
-    obj.secretValue = value;
+    this->x = x;
+    this->y = y;
+    this->p = new int(value);
+}
+Test::~Test()
+{
+    delete p;
+}
+Test::Test(const Test & obj) // Copy constructor. its used for pointers in classes
+{
+    this->p = new int(*(obj.p));
+    this->x = obj.x;
+    this->y = obj.y;
 }
