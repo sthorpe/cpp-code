@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		652130A7216E66890025E4A9 /* integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 652130A5216E66890025E4A9 /* integer.cpp */; };
+		65007CAE216F9AAF004B7EE1 /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65007CAD216F9AAF004B7EE1 /* point.cpp */; };
 		65699C61216683E4006EF864 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65699C60216683E4006EF864 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		652130A5216E66890025E4A9 /* integer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = integer.cpp; sourceTree = "<group>"; };
-		652130A6216E66890025E4A9 /* integer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = integer.h; sourceTree = "<group>"; };
+		65007CAD216F9AAF004B7EE1 /* point.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
+		65007CAF216F9AB9004B7EE1 /* point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
 		65699C5D216683E4006EF864 /* cpp_source */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cpp_source; sourceTree = BUILT_PRODUCTS_DIR; };
 		65699C60216683E4006EF864 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				65699C60216683E4006EF864 /* main.cpp */,
-				652130A5216E66890025E4A9 /* integer.cpp */,
-				652130A6216E66890025E4A9 /* integer.h */,
+				65007CAF216F9AB9004B7EE1 /* point.h */,
+				65007CAD216F9AAF004B7EE1 /* point.cpp */,
 			);
 			path = cpp_source;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				652130A7216E66890025E4A9 /* integer.cpp in Sources */,
+				65007CAE216F9AAF004B7EE1 /* point.cpp in Sources */,
 				65699C61216683E4006EF864 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

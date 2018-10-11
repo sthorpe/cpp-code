@@ -6,32 +6,30 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 /*
- Convert constructor and overloading operators
+ Inheritance between classes
 */
 
 #include <iostream>
-#include "integer.h"
+#include "point.h"
 
 using namespace std;
 
+void operationOnPoints();
+
 int main() {
-    //int a = 10;
-    //double b = 20;
     
-    //cout << (double) a / b << endl;
-    
-    Integer a(50);// casting double
-    int b = (int)a;
-    a = 100;
-    cout << a.getNr() << endl;
-    cout << b << endl;
-    
-    cout << a + (Integer)b << endl;
-    
-    a += b; // a = a + b;
-    
-    cout << a.getNr() << endl;
+    operationOnPoints();
     
     return 0;
 }
-
+void operationOnPoints()
+{
+    Point p1(5);
+    Point2D p2(9);
+    Point2D p3(23, 11);
+    p2.setX(99);
+    
+    cout << p1.getX() << endl;
+    cout << p2.getX() << endl;
+    cout << p3.getX() << " , " << p3.getY() << endl;
+}
