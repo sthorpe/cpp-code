@@ -6,30 +6,43 @@
 //  Copyright © 2018 Scott Thorpe. All rights reserved.
 //
 /*
- Inheritance between classes
+ Polymorphism, virtual functions, abstract class
 */
 
 #include <iostream>
-#include "point.h"
+#include "farm.h"
 
 using namespace std;
 
-void operationOnPoints();
+void voiceOfAnimal(Animal *);
+void voiceOfAnimal(Animal &);
 
 int main() {
     
-    operationOnPoints();
+    Animal animal;
+    Dog dog;
+    Cat cat;
+    Cow cow;
+    
+    cout << animal.getVoice() << endl;
+    cout << dog.getVoice() << endl;
+    cout << cat.getVoice() << endl;
+    cout << cow.getVoice() << endl;
+    
+    //voiceOfAnimal(&dog);  This is faster and most common
+    voiceOfAnimal(dog);
+    
+    Animal *p = &dog;
+    
+    cout << p->getVoice() << endl;
     
     return 0;
 }
-void operationOnPoints()
+void voiceOfAnimal(Animal *p)
 {
-    Point p1(5);
-    Point2D p2(9);
-    Point2D p3(23, 11);
-    p2.setX(99);
-    
-    cout << p1.getX() << endl;
-    cout << p2.getX() << endl;
-    cout << p3.getX() << " , " << p3.getY() << endl;
+    cout << p->getVoice() << endl;
+}
+void voiceOfAnimal(Animal &p)
+{
+    cout << p.getVoice() << endl;
 }
