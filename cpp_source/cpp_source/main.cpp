@@ -1,60 +1,49 @@
-//
-//  main.cpp
-//  cpp_source
-//
-//  Created by Scott Thorpe on 10/4/18.
-//  Copyright © 2018 Scott Thorpe. All rights reserved.
-//
-/*
- Shared pointers
-*/
-
 #include <iostream>
-#include <memory>
-#include <thread>
-#include <chrono>
-#include <mutex>
+#include "point.h"
 
-struct Base
-{
-    Base() { std::cout << "  Base::Base()\n"; }
-    // Note: non-virtual destructor is OK here
-    ~Base() { std::cout << "  Base::~Base()\n"; }
-};
+using namespace std;
+/* function templates generalization*/
 
-struct Derived: public Base
-{
-    Derived() { std::cout << "  Derived::Derived()\n"; }
-    ~Derived() { std::cout << "  Derived::~Derived()\n"; }
-};
+void operationOnPoints();
 
-void thr(std::shared_ptr<Base> p)
+template<typename T, typename T2>
+T add(T var1, T2 var2)
 {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    std::shared_ptr<Base> lp = p; // thread-safe, even though the
-    // shared use_count is incremented
-    {
-        static std::mutex io_mutex;
-        std::lock_guard<std::mutex> lk(io_mutex);
-        std::cout << "local pointer in a thread:\n"
-        << "  lp.get() = " << lp.get()
-        << ", lp.use_count() = " << lp.use_count() << '\n';
-    }
+    return var1 + var2;
 }
-
+/*
+ template<>
+ Point2D add(Point2D var1, Point2D var2)
+ {
+ Point2D tmp;
+ 
+ tmp.setX(var1.getX() + var2.getX());
+ tmp.setY(var1.getY() + var2.getY());
+ 
+ return tmp;
+ }
+ */
 int main()
 {
-    std::shared_ptr<Base> p = std::make_shared<Derived>();
+    operationOnPoints();
     
-    std::cout << "Created a shared Derived (as a pointer to Base)\n"
-    << "  p.get() = " << p.get()
-    << ", p.use_count() = " << p.use_count() << '\n';
-    std::thread t1(thr, p), t2(thr, p), t3(thr, p);
-    p.reset(); // release ownership from main
-    std::cout << "Shared ownership between 3 threads and released\n"
-    << "ownership from main:\n"
-    << "  p.get() = " << p.get()
-    << ", p.use_count() = " << p.use_count() << '\n';
-    t1.join(); t2.join(); t3.join();
-    std::cout << "All threads completed, the last one deleted Derived\n";
+    //cout << add<double, double>(2, 5.6) << endl;
+    
+    
+    // cout << static_cast<int>(6.5) << endl;
+    
+    return 0;
 }
+void operationOnPoints()
+{
+    Point2D p1(10, 67);
+    Point2D p2(50, 3); // 60,70
+    
+    Point2D sum = add(p1,p2);
+    
+    cout << sum.getX() << endl;
+    cout << sum.getY() << endl;
+    
+    
+}
+
