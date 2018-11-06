@@ -1,47 +1,46 @@
 #include <iostream>
 
-using namespace std;
-/* Exceptions - handling exceptions */
+//using namespace std;
+/* Namespaces */
 
-class DivisionByZeroException
+namespace A
 {
-public:
-    void getErrorMessage() { cout << "Error: do not divide by zero" << endl; }
-};
-
-double division(double a, double b) throw(DivisionByZeroException) // Just for information about which exception
-{
-    if (b == 0)
-        throw DivisionByZeroException();
-    return a / b;
+    int a = 20;
 }
+
+namespace B
+{
+    int a = 60;
+}
+
+namespace mySpace
+{
+    class MyNewLine
+    {
+        std::string text;
+    public:
+        MyNewLine(std::string text = "\n\n\n") { this->text = text; }
+        std::string toString()
+        {
+            return text;
+        }
+    };
+    std::ostream & operator<<(std::ostream & out, MyNewLine & obj)
+    {
+        return out << obj.toString();
+    }
+    MyNewLine endl;
+}
+
+using namespace mySpace;
+
 int main()
 {
-    double a = 5;
-    double result;
-    try
-    {
-        result = division(5, 0);
-        cout << "The result is " << result << endl;
-//        a *= 10;
-//        if (a == 50)
-//            throw a;
-    }
-    catch(DivisionByZeroException e)
-    {
-        e.getErrorMessage();
-    }
-//    catch(double e)
-//    {
-//        cout << "a cannot be equal to " << a << endl;
-//    }
-//    catch(...)
-//    {
-//        cout << "this will catch anything " << a << endl;
-//    }
+    int a = 50;
     
-    cout << "Yeah it still runs this!" << endl;
-    
+    std::cout << a << mySpace::endl;
+    std::cout << A::a << std::endl;
+    std::cout << B::a << endl;
     return 0;
 }
 
