@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 //using namespace std;
 /* Streams */
 
@@ -7,8 +7,16 @@ using namespace std;
 
 int main()
 {
-    string a;
-    cin >> a;
-    cout << a << endl;
+    fstream myFileHandler;
+    myFileHandler.open("test.txt");
+    int x;
+
+    if (myFileHandler.is_open())
+    {
+        cout << "The file was opened properly" << endl;
+        myFileHandler << "This is a test :)";
+        myFileHandler.close();
+    }
+    
     return 0;
 }
