@@ -14,7 +14,7 @@ int main()
     if (myFileHandler.is_open())
     {
         cout << "The file was opened properly" << endl;
-        myFileHandler << "This is a test :)";
+        myFileHandler << "This is a test :)" << endl;
         myFileHandler.close();
     }
     
