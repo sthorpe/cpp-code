@@ -20,7 +20,7 @@ int main()
     */
     
     /*
-     DEFAULT MODE (FLAGS)
+     DEFAULT  MODE (FLAGS)
      fstream - ios::out | ios::in
     */
 
